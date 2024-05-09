@@ -8,6 +8,8 @@
 DB_PORT=7687
 echo 'Pulling postgres image'
 docker pull postgres
+docker tag postgres:latest pg-tabletop:1
+docker run --publish 7687:8080 pg-tabletop:1
 
 
 #  Deploy Rest API
