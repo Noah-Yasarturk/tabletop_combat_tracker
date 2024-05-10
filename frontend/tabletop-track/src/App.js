@@ -1,5 +1,5 @@
 import './App.css';
-import { CharacterRow } from './components/characterRow/characterRow';
+import { CharacterRow } from './components/characterRow';
 
 function App() {
   return (
