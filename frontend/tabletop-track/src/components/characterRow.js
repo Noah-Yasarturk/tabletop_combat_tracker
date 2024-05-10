@@ -1,11 +1,13 @@
 import './characterRow.scss'
 import { CharacterStat } from './characterStat'
 
-export function CharacterRow() {
+export function CharacterRow({characterName}) {
+
     
     return (
         <div className="characterRowWrapper">
-            <CharacterStat />
+            Name: {characterName}
+            <CharacterStat/>
             <div className='parchment'>
                 <svg>
                     <filter id="wavy2">

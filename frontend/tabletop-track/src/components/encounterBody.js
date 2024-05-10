@@ -3,10 +3,12 @@ import dummyData from "./dummyStats1.json"
 
 
 export function EncounterBody(){
-    const characterData = dummyData;
+    const characterData = dummyData; // TODO: replace with backend REST call
     console.log(dummyData)
     const characterRows = characterData.characters.map(characterObj =>
-        <CharacterRow/>
+        <CharacterRow 
+            characterName={characterObj.name}
+        />
     )
 
     return (
