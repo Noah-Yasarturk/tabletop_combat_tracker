@@ -1,13 +1,22 @@
 import './characterRow.scss'
 import { CharacterStat } from './characterStat'
 
-export function CharacterRow({characterName}) {
+export function CharacterRow({characterName, characterType, characterHealth, stats}) {
 
+    const characterStats = stats.map(stat => {
+        console.log(stat);
+        <CharacterStat
+            statName={stat.stat_name}
+            statValue={stat.val}
+        />
+    })
     
     return (
         <div className="characterRowWrapper">
             Name: {characterName}
-            <CharacterStat/>
+            Type: {characterType}
+            Health: {characterHealth}
+            {characterStats}
             <div className='parchment'>
                 <svg>
                     <filter id="wavy2">

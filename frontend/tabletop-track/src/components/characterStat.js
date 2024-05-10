@@ -1,14 +1,15 @@
 import './characterStat.scss'
 
-export function CharacterStat() {
+export function CharacterStat({statName, statValue}) {
 
     return (
         <div className="characterStat">
+            Stat
             <div className="statValue">
-                11
+                {statName}
             </div>
             <div className="statName">
-                Stat Name
+                {statValue}
             </div>
         </div>
     )

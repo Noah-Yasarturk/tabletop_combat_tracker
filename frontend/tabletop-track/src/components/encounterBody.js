@@ -8,6 +8,9 @@ export function EncounterBody(){
     const characterRows = characterData.characters.map(characterObj =>
         <CharacterRow 
             characterName={characterObj.name}
+            characterType={characterObj.character_type}
+            characterHealth={characterObj.health}
+            stats={characterObj.stats}
         />
     )
 
