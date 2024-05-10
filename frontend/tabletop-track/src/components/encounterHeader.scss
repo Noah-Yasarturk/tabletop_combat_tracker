@@ -1,0 +1,12 @@
+@import './globlalStyles.scss';
+
+.static {     
+    top:0;
+    position: sticky; 
+    z-index: 3;
+    height: 10vh;
+    background-color: $colorOne;
+    font-family: Papyrus;
+    font-size: 5em;
+}
+

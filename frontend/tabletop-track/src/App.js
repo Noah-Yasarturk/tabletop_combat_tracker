@@ -1,9 +1,14 @@
 import './App.css';
-import { CharacterRow } from './components/characterRow';
+import { EncounterHeader } from './components/encounterHeader';
+import { EncounterBody } from './components/encounterBody';
 
 function App() {
   return (
-    <CharacterRow/>
+    <div >
+      <EncounterHeader/>
+      <EncounterBody/>
+    </div>
+    
   );
 }
 
