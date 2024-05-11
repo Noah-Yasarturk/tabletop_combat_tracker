@@ -4,10 +4,11 @@ import dummyData from "./dummyStats1.json"
 
 export function EncounterBody(){
     const characterData = dummyData; // TODO: replace with backend REST call
-    console.log(dummyData)
     const characterRows = characterData.characters.map(characterObj =>
         <CharacterRow 
+            key={characterObj.name} // React requires use of a unique ID in lists
             characterName={characterObj.name}
+            characterIconPath={characterObj.icon}
             characterType={characterObj.character_type}
             characterHealth={characterObj.health}
             stats={characterObj.stats}

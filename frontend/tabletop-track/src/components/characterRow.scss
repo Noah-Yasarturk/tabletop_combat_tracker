@@ -1,17 +1,60 @@
-.characterStat {
-  z-index: 1;
-  position: absolute;
-  transform: translate(50vw)
-}
-
 .characterRowWrapper {
+  position: relative;
+  height: 15vh;
+  width: 100%;
+  overflow: hidden;
 }
 
-.parchment { // Thanks https://stackoverflow.com/questions/14585101/old-paper-background-texture-with-just-css
-    position: relative;
-    transform: scale(0.85);
-    // padding: 2em;
-    box-shadow: 1px 3px 20px black, 0 0 60px #8a4d0f inset;
-    background: #fffef0;
-    filter: url(#wavy2);
+.parchmentBottom { // Thanks https://stackoverflow.com/questions/14585101/old-paper-background-texture-with-just-css
+  // position: relative;
+  transform: scale(0.85);
+  box-shadow: 1px 3px 20px black, 0 0 60px #8a4d0f inset;
+  background: #fffef0;
+  filter: url(#wavy2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
 }
+
+.characterRowTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 2; /* Above 'bottom' element */
+}
+
+// .zPlane1Wrapper {
+//   display: flex;
+//   position: fixed;
+//   z-index: 1;
+
+//   // Center horizontally center the absolutely positioned element
+//   left: 0; 
+//   right: 0; 
+//   margin: auto;  
+//   width: 10px; /* Need a specific value to work */
+//   // // Center vertically the absolutley postioned element
+//   // top: 50%;
+
+// }
+
+.characterStat {
+  // z-index: 1;
+  position: absolute;
+  transform: translate(50vw);
+  background-color: #8a0f69;
+}
+
+.rowStatWrapper {
+  background-color: red;
+  // z-index: 1;
+}
+
