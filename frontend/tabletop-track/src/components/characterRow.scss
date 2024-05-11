@@ -9,11 +9,14 @@
 
 .parchmentBottom { 
   // Thanks https://stackoverflow.com/questions/14585101/old-paper-background-texture-with-just-css
+  box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
   margin: 0.25em 1em; 
   border-radius: 20px;
-  box-shadow: $blueBlaze;
   background: #fffef0;
   filter: url(#wavy2);
+}
+
+.bottom {
   position: absolute;
   top: 0;
   left: 0;
@@ -36,14 +39,32 @@
 }
 
 .enemyNpcShader {
-
+  box-shadow: 1px 3px 1px rgb(97, 97, 97), 
+  0 0 60px #8a0f0f inset;
+  margin: 0.25em 1em; 
+  border-radius: 20px;
+  background: #fffef0;
+  filter: url(#wavy2);
 }
 
 .playerCharacterShader {
-
+  box-shadow: 1px 3px 1px rgb(97, 97, 97), 
+  0 0 60px #0f248a inset;
+  margin: 0.25em 1em; 
+  border-radius: 20px;
+  background: #fffef0;
+  filter: url(#wavy2);
+  
 }
 
-.playerCharacterShader {}
+.friendlyNpcShader {
+  box-shadow: 1px 3px 1px rgb(97, 97, 97), 
+  0 0 65px #0f8a42 inset;
+  margin: 0.25em 1em; 
+  border-radius: 20px;
+  background: #fffef0;
+  filter: url(#wavy2);
+}
 
 .characterIcon {
   background-color: green;
@@ -57,7 +78,7 @@
 
 .nameTypeWrapper {
   margin: 0 1em;
-  width: 15%;
+  width: 20%;
   p {
     margin-top: 0.4em;
     margin-bottom: 0.4em;
@@ -65,7 +86,7 @@
 }
 
 .characterName {
-  background-color: blue;
+  background-color: white;
   padding: 0.4em 0.3em;
   border-radius: 9px;
   text-align: center;
@@ -73,7 +94,7 @@
 }
 
 .characterType {
-  background-color: green;
+  background-color: white;
   padding: 0.4em 0.3em;
   border-radius: 9px;
   text-align: center;

@@ -3,7 +3,7 @@ import { CharacterIcon } from './characterIcon'
 import { CharacterStat } from './characterStat'
 
 export function CharacterRow({
-    npc, characterName, characterIconPath, characterType, playerType, stats}) {
+    playerType, characterName, characterIconPath, characterType, stats}) {
 
     const characterStats = stats.map(stat => 
         <CharacterStat
@@ -18,8 +18,9 @@ export function CharacterRow({
         "FRIENDLY_NPC": "friendlyNpcShader"
     })
 
+
     return (
-        <div className={ "characterRowWrapper " + playerTypeColors[playerType] }>
+        <div className={ "characterRowWrapper"}>
             <div className="characterRowTop">
                 <CharacterIcon imagePath={characterIconPath}/>
                 <div className="nameTypeWrapper">
@@ -33,12 +34,12 @@ export function CharacterRow({
                     {characterStats}
                 </div>  */}
             </div>
-            <div className='parchmentBottom'>
+            <div className={ 'bottom ' + playerTypeColors[playerType] }>
                 <svg>
-                    <filter id="wavy2">
-                        <feTurbulence x="0" y="0" baseFrequency="0.1" numOctaves="5" seed="1"></feTurbulence>
-                        <feDisplacementMap in="SourceGraphic" scale="17" />
-                    </filter>
+                <filter id="wavy2">
+                    <feTurbulence x="0" y="0" baseFrequency="0.1" numOctaves="5" seed="1"></feTurbulence>
+                    <feDisplacementMap in="SourceGraphic" scale="17" />
+                </filter>
                 </svg>
             </div>
         </div>
