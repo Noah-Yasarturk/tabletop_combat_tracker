@@ -10,7 +10,6 @@ export function CharacterIcon({imagePath}) {
 
     return (
         <div style={styler} className="characterIcon">
-            square
         </div>
     )
 }
