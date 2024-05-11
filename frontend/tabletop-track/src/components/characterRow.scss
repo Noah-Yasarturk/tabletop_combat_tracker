@@ -1,3 +1,5 @@
+@import './globlalStyles.scss';
+
 .characterRowWrapper {
   position: relative;
   height: 15vh;
@@ -7,8 +9,9 @@
 
 .parchmentBottom { 
   // Thanks https://stackoverflow.com/questions/14585101/old-paper-background-texture-with-just-css
-  margin: 0.5em 1em; 
-  box-shadow: 1px 3px 20px black, 0 0 60px #8a4d0f inset;
+  margin: 0.25em 1em; 
+  border-radius: 20px;
+  box-shadow: $blueBlaze;
   background: #fffef0;
   filter: url(#wavy2);
   position: absolute;
@@ -32,6 +35,16 @@
   padding: 0 2.5em;
 }
 
+.enemyNpcShader {
+
+}
+
+.playerCharacterShader {
+
+}
+
+.playerCharacterShader {}
+
 .characterIcon {
   background-color: green;
   z-index: 1;
@@ -43,8 +56,6 @@
 }
 
 .nameTypeWrapper {
-  // background-color: red;
-  // padding: 3em 0;
   margin: 0 1em;
   width: 15%;
   p {

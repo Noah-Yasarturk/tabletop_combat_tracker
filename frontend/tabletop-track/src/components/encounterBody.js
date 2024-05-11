@@ -7,6 +7,7 @@ export function EncounterBody(){
     const characterRows = characterData.characters.map(characterObj =>
         <CharacterRow 
             key={characterObj.name} // React requires use of a unique ID in lists
+            playerType={characterObj.player_type}
             characterName={characterObj.name}
             characterIconPath={characterObj.icon}
             characterType={characterObj.character_type}

@@ -3,7 +3,7 @@ import { CharacterIcon } from './characterIcon'
 import { CharacterStat } from './characterStat'
 
 export function CharacterRow({
-    characterName, characterIconPath, characterType, characterHealth, stats}) {
+    npc, characterName, characterIconPath, characterType, playerType, stats}) {
 
     const characterStats = stats.map(stat => 
         <CharacterStat
@@ -11,9 +11,15 @@ export function CharacterRow({
             statValue={stat.stat_value}
         />
     )
-    
+
+    const playerTypeColors = Object.freeze({
+        "ENEMY_NPC": "enemyNpcShader",
+        "PLAYER_CHARACTER": "playerCharacterShader",
+        "FRIENDLY_NPC": "friendlyNpcShader"
+    })
+
     return (
-        <div className="characterRowWrapper">
+        <div className={ "characterRowWrapper " + playerTypeColors[playerType] }>
             <div className="characterRowTop">
                 <CharacterIcon imagePath={characterIconPath}/>
                 <div className="nameTypeWrapper">
