@@ -16,11 +16,14 @@ export function CharacterRow({
         <div className="characterRowWrapper">
             <div className="characterRowTop">
                 <CharacterIcon imagePath={characterIconPath}/>
-                Name: {characterName}
-                Type: {characterType}
-                Health: {characterHealth}
+                <div className="nameTypeWrapper">
+                    <p className="characterName">{characterName}</p>
+                    <p className="characterType">{characterType}</p>
+                </div>
                 
-                {/* <div className="rowStatWrapper"> 
+                {/* Health: {characterHealth} */}
+                
+                {/* <div> 
                     {characterStats}
                 </div>  */}
             </div>
