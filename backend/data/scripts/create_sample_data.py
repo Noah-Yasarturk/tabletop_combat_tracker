@@ -31,6 +31,7 @@ DDL_ORDER = ['user_role', 'tool_user', 'encounter', 'character_template',
                  'template_stat', 'character_instance', 'instance_stat']
 
 def run_sql(q: str) -> None:
+    ''' Run & commit SQL '''
     print(f'Executing SQL:\n{q}') 
     with ENGINE.connect() as connection:
         res = connection.execute(text(q))
@@ -65,23 +66,21 @@ def load_dummy_data() -> None:
     d = {}
     with open(os.getcwd() + '/frontend/tabletop-track/src/components/dummyStats1.json') as jf:
         d = json.loads(jf.read())
-        for character in d['characters']:
-            print(character)
+        for c in d['characters']:
+            print(c)
             print()
-            # Insert template stats
-            for template_stat in character['stats']:
-                sql = INSERT_TEMPLATE_STAT.replace('<NAME>', template_stat['stat_name'])
-                sql = sql.replace('<VALUE>', str(template_stat['stat_value']))
-                sql = sql.replace('<MODIFIER>', str(template_stat['stat_modifier']))
-                print(sql)
-                # TODO: execute SQL
             # Insert character template 
-            # TODO: implement
-            sql = INSERT_CHARACTER_TEMPLATE.replace('<HEALTH>', str(character['total_health']))
-            # Insert instance stats 
+            sql = INSERT_CHARACTER_TEMPLATE.replace('<HEALTH>', str(c['total_health']))
+            sql = sql.replace('<PLAYER_TYPE>',c['player_type']).replace('<CHAR_TYPE>',c['character_type'])
+            run_sql(sql)
+            # Insert template stats
+            for template_stat in c['stats']:
+                # TODO: execute SQL
+                pass
+            # Insert instance character
             # TODO: implement
 
-            # Insert instance character
+            # Insert instance stats 
             # TODO: implement
 
 
