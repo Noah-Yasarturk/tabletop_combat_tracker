@@ -7,7 +7,7 @@ export function CharacterHealth({currentHealth, totalHealth}) {
         <div className="healthWrapper">
             <div className="bottomHexagon">&#x2B22;</div> 
             <div className="topHealthValues" >
-                {currentHealth}/{totalHealth}
+                {currentHealth} / {totalHealth}
             </div>
         </div>
     )
