@@ -78,3 +78,33 @@
   height: 100%;
   margin: 0.5em;
 }
+
+.characterStatsWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.tailEndWrapper {
+  
+}
+
+.actionSectionWrapper {
+  padding: 0 1em;
+  display: flex;
+}
+
+.editIcon {
+  opacity: .75;
+  height: 5vh;
+  width: 5vh;
+}
+
+.moreIcon {
+  opacity: .75;
+  height: 5vh;
+  width: 5vh;
+}
+
+.exitEncounterButton {
+  font-size: 24px;
+}

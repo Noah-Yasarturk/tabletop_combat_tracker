@@ -5,10 +5,10 @@ export function CharacterStat({statName, statValue}) {
     return (
         <div className="characterStat">
             <div className="statValue">
-                {statName}
+                {statValue}
             </div>
             <div className="statName">
-                {statValue}
+                {statName}
             </div>
         </div>
     )

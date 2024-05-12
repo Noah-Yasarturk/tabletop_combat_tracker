@@ -1,12 +1,30 @@
-
-
+@import './globalStyles.scss';
 .statValue {
-    background-color: red;
-    z-index: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Papyrus;
+    font-size: 24px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 4px;
+    height:7vh;
+    width:90%;
+
 }
 
 .statName {
-    background-color: blue;
-    z-index: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Papyrus;
+    margin-right: 5px;
+    font-size: 20px;
+    padding: 0 2px;
+    border-radius: 4px;
 
 }

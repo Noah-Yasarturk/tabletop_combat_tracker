@@ -3,6 +3,8 @@ import { CharacterIcon } from './characterIcon'
 import { CharacterStat } from './characterStat'
 import { CharacterHealth } from './characterHealth'
 import { TempStats } from './tempStats'
+import pencilIcon from '../assets/pencil_icon.png'
+import tripleDotIcon from '../assets/three-dots.svg'
 
 export function CharacterRow({
     playerType, characterName, characterIconPath, characterType, 
@@ -42,9 +44,18 @@ export function CharacterRow({
                     |
                 </div>
                 
-                {/* <div> 
+                <div class="characterStatsWrapper"> 
                     {characterStats}
-                </div>  */}
+                </div> 
+
+                <div className="tailEndWrapper">
+                    <div className="actionSectionWrapper">
+                        <img src={pencilIcon} className="editIcon"></img>
+                        <img src={tripleDotIcon} className="moreIcon"></img>
+                        <div className="exitEncounterButton">x</div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     )
