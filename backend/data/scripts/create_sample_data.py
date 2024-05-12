@@ -15,6 +15,9 @@ ENGINE = create_engine(ENGINE_URL)
 # Get SQL templates
 DDL_DIR = os.getcwd() + '/backend/data/ddl/'
 DML_DIR = os.getcwd() + '/backend/data/dml/'
+INSERT_ROLE = ''
+INSERT_USER = ''
+INSERT_ENCOUNTER = ''
 INSERT_TEMPLATE_STAT = ''
 INSERT_CHARACTER_TEMPLATE = ''
 INSERT_INSTANCE_STAT = '' 
@@ -27,6 +30,12 @@ with open(DML_DIR + 'insert_instance_stat.sql') as f:
     INSERT_INSTANCE_STAT = f.read()
 with open(DML_DIR + 'insert_character_instance.sql') as f:
     INSERT_CHARACTER_INSTANCE = f.read()
+with open(DML_DIR + 'insert_role.sql') as f:
+    INSERT_ROLE = f.read()
+with open(DML_DIR + 'insert_user.sql') as f:
+    INSERT_USER = f.read()
+with open(DML_DIR + 'insert_encounter.sql') as f:
+    INSERT_ENCOUNTER = f.read()
 DDL_ORDER = ['user_role', 'tool_user', 'encounter', 'character_template', 
                  'template_stat', 'character_instance', 'instance_stat']
 
@@ -74,6 +83,9 @@ def load_dummy_data() -> None:
     d = {}
     with open(os.getcwd() + '/frontend/tabletop-track/src/components/dummyStats1.json') as jf:
         d = json.loads(jf.read())
+        run_sql(INSERT_ROLE)
+        run_sql(INSERT_USER)
+        run_sql(INSERT_ENCOUNTER)
         for c in d['characters']:
             print(c)
             print()
@@ -90,8 +102,12 @@ def load_dummy_data() -> None:
                 sql = sql.replace('<VAL>', t_stat['stat_value']).replace('<MOD>', t_stat['stat_modifier'])
                 run_sql(sql)
             # Insert instance character
-            # TODO: implement
-
+            e_id_sql = "SELECT MAX(encounter_id) as eid FROM public.encounter"
+            e_id = str(sql_to_df(e_id_sql).iloc[0]['eid'])
+            sql = INSERT_CHARACTER_INSTANCE.replace('<EID>',e_id).replace('<TID>', char_tmp_id)
+            sql = sql.replace('<HLTH>', str(c['current_health'])).replace('<C_TYPE>', c['character_type'])
+            sql = sql.replace('<P_TYPE>',c['player_type'])
+            run_sql(sql)
             # Insert instance stats 
             # TODO: implement
 
