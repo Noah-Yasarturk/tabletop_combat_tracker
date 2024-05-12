@@ -109,7 +109,7 @@ def load_dummy_data() -> None:
             sql = sql.replace('<P_TYPE>',c['player_type'])
             run_sql(sql)
             # Insert instance stats 
-            # TODO: implement
+            
 
 
 if __name__ == "__main__":

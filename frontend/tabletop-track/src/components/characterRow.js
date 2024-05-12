@@ -2,13 +2,13 @@ import './characterRow.scss'
 import { CharacterIcon } from './characterIcon'
 import { CharacterStat } from './characterStat'
 import { CharacterHealth } from './characterHealth'
-import { TempStats } from './tempStats'
+import { InstanceStats } from './instanceStats'
 import pencilIcon from '../assets/pencil_icon.png'
 import tripleDotIcon from '../assets/three-dots.svg'
 
 export function CharacterRow({
     playerType, characterName, characterIconPath, characterType, 
-    currentHealth, characterHealth, tempStats, stats}) {
+    currentHealth, characterHealth, instanceStats, stats}) {
 
     const characterStats = stats.map(stat => 
         <CharacterStat key={characterName + stat.stat_name}
@@ -40,7 +40,7 @@ export function CharacterRow({
                 <div className="pipeSeparator">
                     |
                 </div>
-                <TempStats tempStats={tempStats}/>
+                <InstanceStats instanceStats={instanceStats}/>
                 <div className="pipeSeparator">
                     |
                 </div>
