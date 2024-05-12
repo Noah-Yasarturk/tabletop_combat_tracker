@@ -37,6 +37,14 @@ def run_sql(q: str) -> None:
         res = connection.execute(text(q))
         connection.commit()
 
+def sql_to_df(q: str) -> pd.DataFrame:
+    ''' Read the SQL '''
+    print(f'Reading via SQL to DataFrame:\n{q}') 
+    df = None
+    with ENGINE.connect() as connection:
+        df = pd.read_sql(q, connection)
+    return df
+
 
 def drop_all_tables() -> None:
     ''' Drop all tables '''
@@ -73,10 +81,14 @@ def load_dummy_data() -> None:
             sql = INSERT_CHARACTER_TEMPLATE.replace('<HEALTH>', str(c['total_health']))
             sql = sql.replace('<PLAYER_TYPE>',c['player_type']).replace('<CHAR_TYPE>',c['character_type'])
             run_sql(sql)
+            # Get the char template id 
+            max_chrtmpl_sql = "SELECT MAX(template_id) as tid FROM public.character_template"
+            char_tmp_id = str(sql_to_df(max_chrtmpl_sql).iloc[0]['tid'])
             # Insert template stats
-            for template_stat in c['stats']:
-                # TODO: execute SQL
-                pass
+            for t_stat in c['stats']:
+                sql = INSERT_TEMPLATE_STAT.replace('<TID>', char_tmp_id).replace('<NAME>', t_stat['stat_name'])
+                sql = sql.replace('<VAL>', t_stat['stat_value']).replace('<MOD>', t_stat['stat_modifier'])
+                run_sql(sql)
             # Insert instance character
             # TODO: implement
 
