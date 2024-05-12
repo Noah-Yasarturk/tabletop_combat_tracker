@@ -1,16 +1,10 @@
 CREATE TABLE IF NOT EXISTS public.character_instance (
     character_instance_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    encounter_id INT REFERENCES public.encounter, 
-    template_id INT REFERENCES public.character_template,
+    encounter_id_fk INT REFERENCES public.encounter (encounter_id), 
+    template_id_fk INT REFERENCES public.character_template (template_id),
     current_health INT,
-    instance_stat_1 INT REFERENCES instance_stat  (instance_stat_id),
-    instance_stat_2 INT REFERENCES instance_stat  (instance_stat_id),
-    instance_stat_3 INT REFERENCES instance_stat  (instance_stat_id),
-    instance_stat_4 INT REFERENCES instance_stat  (instance_stat_id),
-    instance_stat_5 INT REFERENCES instance_stat  (instance_stat_id),
-    instance_stat_6 INT REFERENCES instance_stat  (instance_stat_id),
-    instance_stat_7 INT REFERENCES instance_stat  (instance_stat_id),
-    instance_stat_8 INT REFERENCES instance_stat  (instance_stat_id),
+    instance_character_type VARCHAR(100),
+    instance_player_type VARCHAR(100),
     created_at timestamp,
     updated_at timestamp
 );
