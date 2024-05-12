@@ -2,10 +2,12 @@ import './characterRow.scss'
 import { CharacterIcon } from './characterIcon'
 import { CharacterStat } from './characterStat'
 import { CharacterHealth } from './characterHealth'
+import { TempStats } from './tempStatComponent'
 
 export function CharacterRow({
     playerType, characterName, characterIconPath, characterType, 
-    currentHealth, characterHealth, stats}) {
+    currentHealth, characterHealth, tempStats, stats}) {
+
 
     const characterStats = stats.map(stat => 
         <CharacterStat
@@ -32,6 +34,8 @@ export function CharacterRow({
                 
                 <CharacterHealth 
                 currentHealth={currentHealth} totalHealth={characterHealth}/>
+
+                <TempStats tempStats={tempStats}/>
                 
                 {/* <div> 
                     {characterStats}

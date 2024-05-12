@@ -13,6 +13,7 @@ export function EncounterBody(){
             characterType={characterObj.character_type}
             currentHealth={characterObj.current_health}
             characterHealth={characterObj.total_health}
+            tempStats={characterObj.temp_stat}
             stats={characterObj.stats}
         />
     )
