@@ -31,9 +31,14 @@ export function CharacterRow({
                     <p className="characterName">{characterName}</p>
                     <p className="characterType">{characterType}</p>
                 </div>
-                
+                <div class="pipeSeparator">
+                    |
+                </div>
                 <CharacterHealth 
                 currentHealth={currentHealth} totalHealth={characterHealth}/>
+                <div class="pipeSeparator">
+                    |
+                </div>
 
                 <TempStats tempStats={tempStats}/>
                 
