@@ -14,6 +14,7 @@ export function CharacterRow({
         <CharacterStat key={characterName + stat.stat_name}
             statName={stat.stat_name}
             statValue={stat.stat_value}
+            statModifier={stat.stat_modifier}
         />
     )
 
