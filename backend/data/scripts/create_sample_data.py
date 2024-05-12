@@ -87,8 +87,6 @@ def load_dummy_data() -> None:
         run_sql(INSERT_USER)
         run_sql(INSERT_ENCOUNTER)
         for c in d['characters']:
-            print(c)
-            print()
             # Insert character template 
             sql = INSERT_CHARACTER_TEMPLATE.replace('<HEALTH>', str(c['total_health']))
             sql = sql.replace('<PLAYER_TYPE>',c['player_type']).replace('<CHAR_TYPE>',c['character_type'])
@@ -107,9 +105,13 @@ def load_dummy_data() -> None:
             sql = INSERT_CHARACTER_INSTANCE.replace('<EID>',e_id).replace('<TID>', char_tmp_id)
             sql = sql.replace('<HLTH>', str(c['current_health'])).replace('<C_TYPE>', c['character_type'])
             sql = sql.replace('<P_TYPE>',c['player_type'])
+            inst_id_sql = "SELECT MAX(character_instance_id) as iid FROM public.character_instance"
+            i_id = str(sql_to_df(inst_id_sql).iloc[0]['iid'])
             run_sql(sql)
             # Insert instance stats 
-            
+            for i in c['instance_stat']:
+                sql = INSERT_INSTANCE_STAT.replace('<INSTID>', i_id).replace('<NAME>', i['stat_name'])
+                sql = sql.replace('<VAL>', str(i['stat_value'])).replace('<MOD>', '')
 
 
 if __name__ == "__main__":
