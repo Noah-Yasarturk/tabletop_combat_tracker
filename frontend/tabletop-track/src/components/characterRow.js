@@ -2,12 +2,11 @@ import './characterRow.scss'
 import { CharacterIcon } from './characterIcon'
 import { CharacterStat } from './characterStat'
 import { CharacterHealth } from './characterHealth'
-import { TempStats } from './tempStatComponent'
+import { TempStats } from './tempStats'
 
 export function CharacterRow({
     playerType, characterName, characterIconPath, characterType, 
     currentHealth, characterHealth, tempStats, stats}) {
-
 
     const characterStats = stats.map(stat => 
         <CharacterStat
@@ -21,7 +20,6 @@ export function CharacterRow({
         "PLAYER_CHARACTER": "playerCharacterShader",
         "FRIENDLY_NPC": "friendlyNpcShader"
     })
-
 
     return (
         <div className={ "characterRowWrapper"}>
@@ -39,8 +37,10 @@ export function CharacterRow({
                 <div class="pipeSeparator">
                     |
                 </div>
-
                 <TempStats tempStats={tempStats}/>
+                <div class="pipeSeparator">
+                    |
+                </div>
                 
                 {/* <div> 
                     {characterStats}
