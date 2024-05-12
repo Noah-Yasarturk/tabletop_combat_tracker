@@ -1,0 +1,10 @@
+@import './globlalStyles.scss';
+.characterIcon {
+    background-color: green;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100% 100%;
+    min-width: $iconMinWidth;
+    min-height: $iconMinWidth;
+  }

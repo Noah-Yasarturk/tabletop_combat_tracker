@@ -11,7 +11,8 @@ export function EncounterBody(){
             characterName={characterObj.name}
             characterIconPath={characterObj.icon}
             characterType={characterObj.character_type}
-            characterHealth={characterObj.health}
+            currentHealth={characterObj.current_health}
+            characterHealth={characterObj.total_health}
             stats={characterObj.stats}
         />
     )

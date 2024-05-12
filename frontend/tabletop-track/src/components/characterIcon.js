@@ -1,4 +1,6 @@
 import './characterStat.scss'
+import './characterIcon.scss'
+
 const images = require.context('../assets/icons', true);
 
 export function CharacterIcon({imagePath}) {
