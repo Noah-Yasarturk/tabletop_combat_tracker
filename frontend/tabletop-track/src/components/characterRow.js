@@ -11,7 +11,7 @@ export function CharacterRow({
     currentHealth, characterHealth, tempStats, stats}) {
 
     const characterStats = stats.map(stat => 
-        <CharacterStat
+        <CharacterStat key={characterName + stat.stat_name}
             statName={stat.stat_name}
             statValue={stat.stat_value}
         />
@@ -31,20 +31,20 @@ export function CharacterRow({
                     <p className="characterName">{characterName}</p>
                     <p className="characterType">{characterType}</p>
                 </div>
-                <div class="pipeSeparator">
+                <div className="pipeSeparator">
                     |
                 </div>
                 <CharacterHealth 
                 currentHealth={currentHealth} totalHealth={characterHealth}/>
-                <div class="pipeSeparator">
+                <div className="pipeSeparator">
                     |
                 </div>
                 <TempStats tempStats={tempStats}/>
-                <div class="pipeSeparator">
+                <div className="pipeSeparator">
                     |
                 </div>
                 
-                <div class="characterStatsWrapper"> 
+                <div className="characterStatsWrapper"> 
                     {characterStats}
                 </div> 
 
