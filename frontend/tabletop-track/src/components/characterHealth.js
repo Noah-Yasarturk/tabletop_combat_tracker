@@ -3,10 +3,12 @@ import './characterHealth.scss'
 
 export function CharacterHealth({currentHealth, totalHealth}) {
     return (
-        // <div className="characterHealth" >
-        //     {currentHealth}/{totalHealth}
-        // </div>
-        <div className="hexagon">&#x2B22;</div> // Hexagon
-
+        
+        <div className="healthWrapper">
+            <div className="bottomHexagon">&#x2B22;</div> 
+            <div className="topHealthValues" >
+                {currentHealth}/{totalHealth}
+            </div>
+        </div>
     )
 }

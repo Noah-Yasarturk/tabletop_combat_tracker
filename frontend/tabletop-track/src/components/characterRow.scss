@@ -7,23 +7,23 @@
   overflow: hidden;
 }
 
-.parchmentBottom { 
-  // Thanks https://stackoverflow.com/questions/14585101/old-paper-background-texture-with-just-css
-  box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
-  margin: 0.25em 1em; 
-  border-radius: 20px;
-  background: #fffef0;
-  filter: url(#wavy2);
-}
+// .parchmentBottom {
+//   // Thanks https://stackoverflow.com/questions/14585101/old-paper-background-texture-with-just-css
+//   box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+//   margin: 0.25em 1em;
+//   border-radius: 20px;
+//   background: #fffef0;
+//   filter: url(#wavy2);
+// }
 
-.bottom {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
+// .bottom {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   z-index: 1;
+// }
 
 .characterRowTop {
   position: absolute;
@@ -32,43 +32,33 @@
   right: 0;
   bottom: 0;
   display: flex;
-  justify-content: center; /* Center horizontally */
+  justify-content: center;  /* Center horizontally */
   align-items: center; /* Center vertically */
-  z-index: 2; /* Above 'bottom' element */
   padding: 0 2.5em;
 }
 
 .enemyNpcShader {
-  box-shadow: 1px 3px 1px rgb(97, 97, 97), 
-  0 0 60px #8a0f0f inset;
-  margin: 0.25em 1em; 
+  background-color: $lightRed;
+  margin: 0.25em 1em;
   border-radius: 20px;
-  background: #fffef0;
-  filter: url(#wavy2);
 }
 
 .playerCharacterShader {
-  box-shadow: 1px 3px 1px rgb(97, 97, 97), 
-  0 0 60px #0f248a inset;
-  margin: 0.25em 1em; 
+  margin: 0.25em 1em;
   border-radius: 20px;
-  background: #fffef0;
-  filter: url(#wavy2);
-  
+  background-color: $lightBlue;
 }
 
 .friendlyNpcShader {
-  box-shadow: 1px 3px 1px rgb(97, 97, 97), 
-  0 0 65px #0f8a42 inset;
-  margin: 0.25em 1em; 
+  margin: 0.25em 1em;
   border-radius: 20px;
-  background: #fffef0;
-  filter: url(#wavy2);
+  background-color: $lightGreen;
 }
 
 .nameTypeWrapper {
   margin: 0 1em;
   width: 20%;
+
   p {
     margin-top: 0.4em;
     margin-bottom: 0.4em;

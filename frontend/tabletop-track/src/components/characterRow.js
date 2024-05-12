@@ -23,7 +23,7 @@ export function CharacterRow({
 
     return (
         <div className={ "characterRowWrapper"}>
-            <div className="characterRowTop">
+            <div className={"characterRowTop "+ playerTypeColors[playerType]}>
                 <CharacterIcon imagePath={characterIconPath}/>
                 <div className="nameTypeWrapper">
                     <p className="characterName">{characterName}</p>
@@ -36,14 +36,6 @@ export function CharacterRow({
                 {/* <div> 
                     {characterStats}
                 </div>  */}
-            </div>
-            <div className={ 'bottom ' + playerTypeColors[playerType] }>
-                <svg>
-                <filter id="wavy2">
-                    <feTurbulence x="0" y="0" baseFrequency="0.1" numOctaves="5" seed="1"></feTurbulence>
-                    <feDisplacementMap in="SourceGraphic" scale="17" />
-                </filter>
-                </svg>
             </div>
         </div>
     )
