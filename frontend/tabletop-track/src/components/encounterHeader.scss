@@ -1,0 +1,17 @@
+@import './globalStyles.scss';
+
+.staticHeader {     
+    top:0;
+    position: sticky; 
+    z-index: 3;
+    height: 10vh;
+    background-color: $colorOne;
+    
+}
+
+.encounterText {
+    font-family: Papyrus;
+    font-size: 400%;
+    padding-left:0.5em
+}
+
