@@ -1,6 +1,6 @@
 import './App.css';
-import { EncounterHeader } from './components/encounterHeader';
-import { EncounterBody } from './components/encounterBody';
+import { EncounterHeader } from './components/characters/encounterHeader';
+import { EncounterBody } from './components/characters/encounterBody';
 
 function App() {
   return (

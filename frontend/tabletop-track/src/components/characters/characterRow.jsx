@@ -3,8 +3,8 @@ import { CharacterIcon } from './characterIcon'
 import { CharacterStat } from './characterStat'
 import { CharacterHealth } from './characterHealth'
 import { InstanceStats } from './instanceStats'
-import pencilIcon from '../assets/pencil_icon.png'
-import tripleDotIcon from '../assets/three-dots.svg'
+import pencilIcon from '../../assets/pencil_icon.png'
+import tripleDotIcon from '../../assets/three-dots.svg'
 
 export function CharacterRow({
     playerType, characterName, characterIconPath, characterType, 

@@ -4,11 +4,16 @@ import { createBrowserRouter,  RouterProvider } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { EncounterMenu } from './components/encounters/encounterMenu';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />
+  },
+  {
+    path: "/encounters",
+    element: <EncounterMenu/>
   }
 ])
 
