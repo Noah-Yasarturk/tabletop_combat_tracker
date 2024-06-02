@@ -4,7 +4,9 @@ import { Outlet, Link } from "react-router-dom";
 export function MainMenu() {
     return (
     <div class="appMainMenu">
-        <h1>Initiative Tracker</h1>
+        <div className="staticHeader">
+            <span className="headerText">Initiative Tracker</span>
+        </div>
         <div class="menuButtonsWrapper">
             <Link class="menuLink" to={`encounters`}>Encounters</Link> 
 
@@ -15,3 +17,4 @@ export function MainMenu() {
     </div>
     )
 }
+

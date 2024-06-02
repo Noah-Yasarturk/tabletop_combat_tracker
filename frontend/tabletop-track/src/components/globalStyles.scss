@@ -8,6 +8,23 @@ $lightGreen: rgb(92, 136, 117);
 
 $iconMinWidth: 4.25em;
 
+.staticHeader {     
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    top:0;
+    position: sticky; 
+    z-index: 3;
+    height: 10vh;
+}
+
+.headerText {
+    font-family: Papyrus;
+    font-size: 400%;
+    padding-left:0.5em
+}
+
+
 
 // $blueBlaze: 1px 3px 1px rgb(97, 97, 97), 
 // 0 0 60px #0f248a inset;

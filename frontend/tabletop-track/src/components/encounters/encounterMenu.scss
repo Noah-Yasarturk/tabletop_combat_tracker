@@ -1,0 +1,22 @@
+@import '../globalStyles.scss';
+
+.encounterMenuWrapper {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.encounterSelectionWrapper {
+
+}
+
+.backToMainMenuSection {
+    display: flex;
+
+}
+
+.backToMainMenuSection svg {
+    // The back icon
+    font-size: 3em;
+    color: $lightBlue;
+}
