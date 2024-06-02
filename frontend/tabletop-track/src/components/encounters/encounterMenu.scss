@@ -36,3 +36,8 @@
 .newEncounterButton:hover {
    background-color: $lighterBlue;
 }
+
+.encounterTextEntryWrapper {
+    display: flex;
+    pointer-events: all;
+}

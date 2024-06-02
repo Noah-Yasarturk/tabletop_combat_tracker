@@ -9,7 +9,6 @@ export function EncounterMenu() {
     const [newEncounterClicked, setNewEncounterClicked] = useState(false);
 
     function handleNewEncounterClicked() {
-        console.log("New encounter clicked! ", newEncounterClicked);
         setNewEncounterClicked(!newEncounterClicked); // toggle it
     }
 
@@ -27,9 +26,15 @@ export function EncounterMenu() {
                 </div>
             )
         }
+        // pointer-events: none
+        document.getElementById("newEncounterSect").style.pointerEvents = "none";
         return (
-            <div className="newEncounterTextBox">
+            <div className="newEncounterButton newEncounterTextBox">
                     What should we call this encounter?
+                    <div className="encounterTextEntryWrapper">
+                        <input></input>
+                        <button>Cancel</button>
+                    </div>
             </div>
         ) 
     }
@@ -46,7 +51,9 @@ export function EncounterMenu() {
             
             <div className="encounterSelectionWrapper">
                 {/* TODO: render via API call to getEncounters() */}
-                <NewEncounter onClick={handleNewEncounterClicked}/>
+                <div onClick={handleNewEncounterClicked} id="newEncounterSect">
+                    <NewEncounter />
+                </div>
             </div>
         </div>
     )
