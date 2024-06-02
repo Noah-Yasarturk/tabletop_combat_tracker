@@ -13,13 +13,27 @@
     align-items: center;
 }
 
+.menuButtonsWrapper {
+    font-family: Papyrus;
+    font-size: 32px;
+}
+
+
 .menuLink {
     background-color: $lightBlue;
-    padding: 2em;
-    margin: 2em 7em;
-    width: 65%;
+    padding: 0.5em;
+    margin: 10px 2em;
+    width: 50vw;
+    height: 50px;
     text-align: center;
     text-decoration: none;
     color: black;
     border-radius: 15px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.menuLink:hover {
+    background-color: $lighterBlue;
 }

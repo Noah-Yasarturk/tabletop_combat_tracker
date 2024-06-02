@@ -7,7 +7,10 @@
 }
 
 .encounterSelectionWrapper {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .backToMainMenuSection {
@@ -19,4 +22,19 @@
     // The back icon
     font-size: 3em;
     color: $lightBlue;
+}
+.backToMainMenuSection svg:hover {
+    color: $lighterBlue;
+}
+
+.newEncounterButton {
+    border-radius: 15px;
+    background-color: white;
+    width: 65%;
+    padding: 2em;
+    border-color: $lightBlue;
+}
+
+.newEncounterButton:hover {
+   background-color: $lighterBlue;
 }
