@@ -7,6 +7,7 @@ Here's how I initialized this project:
 npx create-react-app tabletop-track
 npm i sass --save-dev
 npm install --save-dev @babel/plugin-transform-private-property-in-object
+npm install react-router-dom
 npm audit fix --force
 npm audit fix
 cd tabletop-track
