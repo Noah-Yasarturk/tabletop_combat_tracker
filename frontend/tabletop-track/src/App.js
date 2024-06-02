@@ -1,14 +1,9 @@
 import './App.css';
-import { EncounterHeader } from './components/characters/encounterHeader';
-import { EncounterBody } from './components/characters/encounterBody';
+import { MainMenu } from './components/mainMenu';
 
 function App() {
   return (
-    <div >
-      <EncounterHeader/>
-      <EncounterBody/>
-    </div>
-    
+    <MainMenu/>
   );
 }
 

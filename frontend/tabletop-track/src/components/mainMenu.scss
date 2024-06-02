@@ -1,0 +1,24 @@
+@import './globalStyles.scss';
+
+
+.appMainMenu {
+    
+}
+
+.menuButtonsWrapper {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.menuLink {
+    background-color: $lightBlue;
+    padding: 2em;
+    margin: 2em 7em;
+    width: 65%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}

@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/encounters",
     element: <EncounterMenu/>
-  }
+  },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
