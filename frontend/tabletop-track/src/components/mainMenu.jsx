@@ -1,18 +1,30 @@
 import './mainMenu.scss'
-import { Outlet, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
+import { GiSwordsEmblem } from "react-icons/gi";
+import { GiCharacter } from "react-icons/gi";
+
 
 export function MainMenu() {
     return (
-    <div class="appMainMenu">
+    <div className="appMainMenu">
         <div className="staticHeader">
             <span className="headerText">Initiative Tracker</span>
         </div>
-        <div class="menuButtonsWrapper">
-            <Link class="menuLink" to={`encounters`}>Encounters</Link> 
+        <div className="menuButtonsWrapper">
+            <Link className="menuLink" to={`encounters`}>
+                <GiSwordsEmblem></GiSwordsEmblem>
+                Encounters
+            </Link> 
 
-            <Link class="menuLink">Characters</Link> 
+            <Link className="menuLink">
+                <GiCharacter></GiCharacter>
+                Characters
+            </Link> 
 
-            <Link class="menuLink">Character Templates</Link>
+            <Link className="menuLink">
+                <GiCharacter className="characterTemplateIcon"></GiCharacter>
+                Character Templates
+            </Link>
         </div>
     </div>
     )

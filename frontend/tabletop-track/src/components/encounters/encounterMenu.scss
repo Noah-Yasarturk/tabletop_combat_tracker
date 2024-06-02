@@ -1,21 +1,17 @@
 @import '../globalStyles.scss';
+@import '../mainMenu.scss';
 
 .encounterMenuWrapper {
     display: flex;
     flex-direction: column;
-
 }
 
 .encounterSelectionWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @extend .menuButtonsWrapper;
 }
 
 .backToMainMenuSection {
     display: flex;
-
 }
 
 .backToMainMenuSection svg {
@@ -28,11 +24,13 @@
 }
 
 .newEncounterButton {
-    border-radius: 15px;
+    @extend .menuLink;
     background-color: white;
-    width: 65%;
-    padding: 2em;
-    border-color: $lightBlue;
+    border: $lightBlue;
+    border-style: solid;
+    border-width: 2px;
+    display: flex;
+    align-items: center;
 }
 
 .newEncounterButton:hover {

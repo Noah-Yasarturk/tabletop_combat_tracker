@@ -81,7 +81,7 @@ def load_dummy_data() -> None:
     ''' Load data from dummy json'''
     # Get dummy data
     d = {}
-    with open(os.getcwd() + '/frontend/tabletop-track/src/components/dummyStats1.json') as jf:
+    with open(os.getcwd() + '/dummyStats1.json') as jf:
         d = json.loads(jf.read())
         run_sql(INSERT_ROLE)
         run_sql(INSERT_USER)

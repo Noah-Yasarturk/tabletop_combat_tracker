@@ -13,13 +13,10 @@
     align-items: center;
 }
 
-.menuButtonsWrapper {
-    font-family: Papyrus;
-    font-size: 32px;
-}
-
 
 .menuLink {
+    font-family: Papyrus;
+    font-size: 32px;
     background-color: $lightBlue;
     padding: 0.5em;
     margin: 10px 2em;
@@ -29,11 +26,22 @@
     text-decoration: none;
     color: black;
     border-radius: 15px;
-    text-align: center;
     align-content: center;
     justify-content: center;
-}
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+} 
+
+// .menuLink svg {
+//     font-size: 5em;
+// }
+
 
 .menuLink:hover {
     background-color: $lighterBlue;
+}
+
+.characterTemplateIcon {
+    color: rgba(255, 255, 255, 0.584);
 }
