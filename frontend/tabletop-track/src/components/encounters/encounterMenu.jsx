@@ -1,4 +1,6 @@
-import { MdArrowBack } from 'react-icons/md'
+import { MdArrowBack } from 'react-icons/md';
+import { GiCancel } from "react-icons/gi";
+import { GiConfirmed } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { GiSwordsEmblem } from "react-icons/gi";
 import './encounterMenu.scss';
@@ -8,6 +10,7 @@ import { useState } from 'react';
 export function EncounterMenu() {
 
     const [namingNewEncounter, setNamingNewEncounter] = useState(false);
+   
 
     function handleNewEncounterClicked(e) {
         console.log(e);
@@ -15,18 +18,22 @@ export function EncounterMenu() {
         setNamingNewEncounter(!namingNewEncounter); // toggle it
     }
 
-    function saveNewEncounter() {
-        // TODO: Call backend to return encounter ID
-        console.log("Hi");
-    }
 
     function NewEncounterTextEntry() {
+        const [newEncounterName, setNewEncounterName] = useState('');
+        function saveNewEncounter() {
+            console.log("Creating new encounter named ", newEncounterName);
+            // TODO: Call backend to create encounter & return encounter ID to redirect window
+        }
         return (
             <div className="newEncounterButton newEncounterTextBox">
                     <div className="encounterTextEntryQuestion">What should we call this encounter?</div>
                     <div className="encounterTextEntryWrapper">
-                        <input id="newEncounterEntry"></input>
-                        <button onClick={(event) => handleNewEncounterClicked(event) } >Cancel</button>
+                        <input id="newEncounterEntry" 
+                            value={newEncounterName}
+                            onChange={e => setNewEncounterName(e.target.value)}/>
+                        <GiCancel onClick={(event) => handleNewEncounterClicked(event) } />
+                        <GiConfirmed onClick={(event) => saveNewEncounter(event) } />
                     </div>
             </div>
         ) 
