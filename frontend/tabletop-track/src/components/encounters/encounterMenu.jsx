@@ -6,37 +6,58 @@ import { useState } from 'react';
 
    
 export function EncounterMenu() {
-    const [newEncounterClicked, setNewEncounterClicked] = useState(false);
 
-    function handleNewEncounterClicked() {
-        setNewEncounterClicked(!newEncounterClicked); // toggle it
+    const [namingNewEncounter, setNamingNewEncounter] = useState(false);
+
+    function handleNewEncounterClicked(e) {
+        console.log(e);
+        console.log("Setting newEncounterClicked to ", !namingNewEncounter);
+        setNamingNewEncounter(!namingNewEncounter); // toggle it
     }
 
     function saveNewEncounter() {
         // TODO: Call backend to return encounter ID
         console.log("Hi");
     }
-    
-    function NewEncounter() {
-        if (newEncounterClicked === false) {
-            return  (
-                <div className="newEncounterButton">
-                    <GiSwordsEmblem></GiSwordsEmblem>
-                    <span>New Encounter</span>
-                </div>
-            )
-        }
-        // pointer-events: none
-        document.getElementById("newEncounterSect").style.pointerEvents = "none";
+
+    function NewEncounterTextEntry() {
         return (
             <div className="newEncounterButton newEncounterTextBox">
-                    What should we call this encounter?
+                    <div className="encounterTextEntryQuestion">What should we call this encounter?</div>
                     <div className="encounterTextEntryWrapper">
-                        <input></input>
-                        <button>Cancel</button>
+                        <input id="newEncounterEntry"></input>
+                        <button onClick={(event) => handleNewEncounterClicked(event) } >Cancel</button>
                     </div>
             </div>
         ) 
+    }
+    
+    function NewEncounterButton() {
+        return  (
+            <div className="newEncounterButton">
+                <GiSwordsEmblem></GiSwordsEmblem>
+                <span>New Encounter</span>
+            </div>
+        )
+    }
+
+    if (!namingNewEncounter) {
+        return (
+            <div className="encounterMenuWrapper">
+                <div className="staticHeader">
+                    <span className="backToMainMenuSection">
+                        <Link to={`/`}>
+                            <MdArrowBack></MdArrowBack>
+                        </Link>
+                    </span>
+                    <span className="headerText">Encounters</span>
+                </div>
+                
+                <div className="newEncounterButtonWrapper" onClick={(event) => handleNewEncounterClicked(event) } >
+                    <NewEncounterButton />
+                </div>
+            </div>
+        )
     }
     return (
         <div className="encounterMenuWrapper">
@@ -49,11 +70,8 @@ export function EncounterMenu() {
                 <span className="headerText">Encounters</span>
             </div>
             
-            <div className="encounterSelectionWrapper">
-                {/* TODO: render via API call to getEncounters() */}
-                <div onClick={handleNewEncounterClicked} id="newEncounterSect">
-                    <NewEncounter />
-                </div>
+            <div >
+                <NewEncounterTextEntry />
             </div>
         </div>
     )
