@@ -34,6 +34,11 @@
     flex-direction: row;
 }
 
+.newEncounterTextBox {
+    border: white!important;
+    width: 85vw!important;
+}
+
 .newEncounterTextBox:hover {
     background-color: white!important;
 }
@@ -44,19 +49,50 @@
 
 .encounterTextEntryWrapper {
     display: flex;
-    // pointer-events: all;
 }
 
 .encounterTextEntryWrapper svg {
-    margin: 0 .1em;
+    margin-left: 10px;
+}
+
+.encounterTextEntryWrapper input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 25vw;
+}
+
+.encounterTextEntryWrapper input:hover {
+    background-color: $lighterBlue;
+}
+
+#submitNewEncounterButton {
+    color: $lightBlue;
+}
+
+#submitNewEncounterButton:hover {
+    background-color: $lighterBlue;
+    border-radius: 50px;
+}
+
+#cancelNewEncounterButton {
+    color: $lightRed
+}
+
+#cancelNewEncounterButton:hover {
+    background-color: $lighterRed;
+    border-radius: 50px;
 }
 
 .encounterTextEntryQuestion {
     padding: 1em; 
+    width: 30vw;
+    font-size: 40px;
 }
 
 .newEncounterTextEntryCompWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
