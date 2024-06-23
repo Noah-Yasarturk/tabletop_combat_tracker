@@ -34,8 +34,8 @@
     flex-direction: row;
 }
 
-.newEncounterTextBox {
-    // pointer-events: none;
+.newEncounterTextBox:hover {
+    background-color: white!important;
 }
 
 .newEncounterButton:hover {
@@ -47,6 +47,16 @@
     // pointer-events: all;
 }
 
+.encounterTextEntryWrapper svg {
+    margin: 0 .1em;
+}
+
 .encounterTextEntryQuestion {
     padding: 1em; 
+}
+
+.newEncounterTextEntryCompWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

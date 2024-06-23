@@ -32,8 +32,8 @@ export function EncounterMenu() {
                         <input id="newEncounterEntry" 
                             value={newEncounterName}
                             onChange={e => setNewEncounterName(e.target.value)}/>
-                        <GiCancel onClick={(event) => handleNewEncounterClicked(event) } />
                         <GiConfirmed onClick={(event) => saveNewEncounter(event) } />
+                        <GiCancel onClick={(event) => handleNewEncounterClicked(event) }/>
                     </div>
             </div>
         ) 
@@ -77,7 +77,7 @@ export function EncounterMenu() {
                 <span className="headerText">Encounters</span>
             </div>
             
-            <div >
+            <div class="newEncounterTextEntryCompWrapper">
                 <NewEncounterTextEntry />
             </div>
         </div>
