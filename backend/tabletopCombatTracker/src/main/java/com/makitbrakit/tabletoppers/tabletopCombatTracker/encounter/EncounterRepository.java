@@ -1,8 +1,7 @@
 package com.makitbrakit.tabletoppers.tabletopCombatTracker.encounter;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EncounterRepository extends CrudRepository<Encounter, Long> {
+public interface EncounterRepository extends JpaRepository<Encounter, Long> {
     
-    Encounter findById(long id);
 }
