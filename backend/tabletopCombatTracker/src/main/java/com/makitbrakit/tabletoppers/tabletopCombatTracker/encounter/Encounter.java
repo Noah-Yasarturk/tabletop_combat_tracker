@@ -1,4 +1,7 @@
-import java.sql.Date;
+package com.makitbrakit.tabletoppers.tabletopCombatTracker.encounter;
+
+import java.util.Date;
+import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,8 +13,7 @@ import jakarta.persistence.Id;
 public class Encounter {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue Long id;
     private String name; 
     private Date createdAt;
     private Date updatedAt;
@@ -39,5 +41,26 @@ public class Encounter {
     public Long getId(){
         return id;
     } 
+
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    public void setName(String newName){
+        this.updatedAt = new Date();;
+        this.name = newName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Encounter)) return false; 
+        Encounter encounter = (Encounter) o;
+        return Objects.equals(this.name, encounter.name);
+    }
+
 
 }
