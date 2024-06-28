@@ -20,10 +20,10 @@ public class Encounter {
 
     protected Encounter() {}
 
-    public Encounter(String name, Date createdAt) {
+    public Encounter(String name) {
         this.name = name; 
-        this.createdAt = createdAt;
-        this.updatedAt = createdAt;
+        this.createdAt = new Date();
+        this.updatedAt = this.createdAt;
     }
 
     @Override
