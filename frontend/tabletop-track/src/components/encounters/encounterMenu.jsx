@@ -24,6 +24,16 @@ export function EncounterMenu() {
         function saveNewEncounter() {
             console.log("Creating new encounter named ", newEncounterName);
             // TODO: Call backend to create encounter & return encounter ID to redirect window
+            return fetch('http://localhost:8080/encounter', {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  name: newEncounterName
+                })
+              })
         }
         return (
             <div className="newEncounterButton newEncounterTextBox">
@@ -77,7 +87,7 @@ export function EncounterMenu() {
                 <span className="headerText">Encounters</span>
             </div>
             
-            <div class="newEncounterTextEntryCompWrapper">
+            <div className="newEncounterTextEntryCompWrapper">
                 <NewEncounterTextEntry />
             </div>
         </div>
