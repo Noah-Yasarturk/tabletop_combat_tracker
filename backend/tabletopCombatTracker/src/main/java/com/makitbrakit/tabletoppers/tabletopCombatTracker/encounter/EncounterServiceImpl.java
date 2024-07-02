@@ -13,14 +13,13 @@ public class EncounterServiceImpl implements EncounterService{
 
     @Override
     public Encounter saveEncounter(Encounter encounter) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'saveEncounter'");
+        encounterRepository.save(encounter);
+        return encounter;
     }
 
     @Override
     public List<Encounter> fetchEncounterList() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'fetchEncounterList'");
+        return encounterRepository.findAll();
     }
 
     @Override

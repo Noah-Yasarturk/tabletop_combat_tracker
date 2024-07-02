@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EncounterRepository extends JpaRepository<Encounter, Long> {
-    
+
 }

@@ -3,27 +3,33 @@ package com.makitbrakit.tabletoppers.tabletopCombatTracker.encounter;
 import java.util.Date;
 import java.util.Objects;
 
-import org.springframework.stereotype.Component;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 
 @Entity
-@Component
 public class Encounter {
 
     @Id
-    @GeneratedValue Long id;
-    private String name; 
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    Long encounterId;
+    private String encounterName; 
+
+    @CreationTimestamp
     private Date createdAt;
+
+    @UpdateTimestamp
     private Date updatedAt;
 
     Encounter() {}
 
-    Encounter(String name) {
-        this.name = name; 
+    Encounter(String encounterName) {
+        this.encounterName = encounterName; 
         this.createdAt = new Date();
         this.updatedAt = this.createdAt;
     }
@@ -32,16 +38,16 @@ public class Encounter {
     public String toString() {
         return String.format(
             "Encounter[id=%d, name=%s]",
-            id, name
+            encounterId, encounterName
         );
     }
 
     public String getName(){
-        return name;
+        return encounterName;
     }
 
     public Long getId(){
-        return id;
+        return encounterId;
     } 
 
     public Date getCreatedAt() {
@@ -54,14 +60,14 @@ public class Encounter {
 
     public void setName(String newName){
         this.updatedAt = new Date();;
-        this.name = newName;
+        this.encounterName = newName;
     }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Encounter)) return false; 
         Encounter encounter = (Encounter) o;
-        return Objects.equals(this.name, encounter.name);
+        return Objects.equals(this.encounterName, encounter.encounterName);
     }
 
 
