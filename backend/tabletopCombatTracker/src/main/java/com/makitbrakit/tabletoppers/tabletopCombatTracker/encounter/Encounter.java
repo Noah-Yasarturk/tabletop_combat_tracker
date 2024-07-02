@@ -3,13 +3,15 @@ package com.makitbrakit.tabletoppers.tabletopCombatTracker.encounter;
 import java.util.Date;
 import java.util.Objects;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 
-
 @Entity
+@Component
 public class Encounter {
 
     @Id
@@ -18,9 +20,9 @@ public class Encounter {
     private Date createdAt;
     private Date updatedAt;
 
-    protected Encounter() {}
+    Encounter() {}
 
-    public Encounter(String name) {
+    Encounter(String name) {
         this.name = name; 
         this.createdAt = new Date();
         this.updatedAt = this.createdAt;
