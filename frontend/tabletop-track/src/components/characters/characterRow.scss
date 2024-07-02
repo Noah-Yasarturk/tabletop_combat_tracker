@@ -1,0 +1,111 @@
+@import '../globalStyles.scss';
+
+.characterRowWrapper {
+  position: relative;
+  height: 15vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+// .parchmentBottom {
+//   // Thanks https://stackoverflow.com/questions/14585101/old-paper-background-texture-with-just-css
+//   box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+//   margin: 0.25em 1em;
+//   border-radius: 20px;
+//   background: #fffef0;
+//   filter: url(#wavy2);
+// }
+
+.characterRowTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;  /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 0 2.5em;
+}
+
+.enemyNpcShader {
+  background-color: $lightRed;
+  margin: 0.25em 1em;
+  border-radius: 20px;
+
+}
+
+.playerCharacterShader {
+  margin: 0.25em 1em;
+  border-radius: 20px;
+  background-color: $lightBlue;
+}
+
+.friendlyNpcShader {
+  margin: 0.25em 1em;
+  border-radius: 20px;
+  background-color: $lightGreen;
+}
+
+.nameTypeWrapper {
+  margin-left: 10px;
+  width: 20%;
+  z-index: 1;
+
+  p {
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+  }
+}
+
+.characterName {
+  background-color: white;
+  padding: 0.4em 0.3em;
+  border-radius: 9px;
+  text-align: center;
+  z-index: 1;
+}
+
+.characterType {
+  background-color: white;
+  padding: 0.4em 0.3em;
+  border-radius: 9px;
+  text-align: center;
+}
+
+.pipeSeparator {
+  background-color: white;
+  color: transparent;
+  height: 100%;
+  margin: 0.5em;
+}
+
+.characterStatsWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.tailEndWrapper {
+    margin-left:auto
+}
+
+.actionSectionWrapper {
+  padding: 0 1em;
+  display: flex;
+}
+
+.editIcon {
+  opacity: .75;
+  height: 5vh;
+  width: 5vh;
+}
+
+.moreIcon {
+  opacity: .75;
+  height: 5vh;
+  width: 5vh;
+}
+
+.exitEncounterButton {
+  font-size: 24px;
+}

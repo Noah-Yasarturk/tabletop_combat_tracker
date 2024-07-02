@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+  display:flex;
+  align-content: center;
+}
+
+html, body, .App, .App>div {
+  height: 100%
+}

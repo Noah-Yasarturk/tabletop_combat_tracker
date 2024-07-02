@@ -1,0 +1,24 @@
+@import '../globalStyles.scss';
+
+.tempStatWrapper {
+   width: 20%;
+   display: flex;
+   flex-direction: row;
+   height: 10vh;
+}
+
+.diamond {
+    background-color: white;
+    height: 10vh;
+    padding: 0 .6em;
+    rotate: 45deg;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 .6em;
+    span {
+        font-family: Papyrus;
+        rotate: -45deg;
+    }
+}

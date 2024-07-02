@@ -1,0 +1,8 @@
+@import '../globalStyles.scss';
+
+
+.encounterHeader {
+    @extend .staticHeader;
+    background-color: $colorOne;
+
+}

@@ -1,0 +1,99 @@
+@import '../globalStyles.scss';
+@import '../mainMenu.scss';
+
+.encounterMenuWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.newEncounterButtonWrapper {
+    @extend .menuButtonsWrapper;
+}
+
+.backToMainMenuSection {
+    display: flex;
+}
+
+.backToMainMenuSection svg {
+    // The back icon
+    font-size: 3em;
+    color: $lightBlue;
+}
+.backToMainMenuSection svg:hover {
+    color: $lighterBlue;
+}
+
+.newEncounterButton {
+    @extend .menuLink;
+    background-color: white;
+    border: $lightBlue;
+    border-style: solid;
+    border-width: 2px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.newEncounterTextBox {
+    border: white!important;
+    width: 85vw!important;
+}
+
+.newEncounterTextBox:hover {
+    background-color: white!important;
+}
+
+.newEncounterButton:hover {
+   background-color: $lighterBlue;
+}
+
+.encounterTextEntryWrapper {
+    display: flex;
+}
+
+.encounterTextEntryWrapper svg {
+    margin-left: 10px;
+}
+
+.encounterTextEntryWrapper input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 25vw;
+    font-family: Papyrus;
+}
+
+.encounterTextEntryWrapper input:hover {
+    background-color: $lighterBlue;
+}
+
+#submitNewEncounterButton {
+    color: $lightBlue;
+}
+
+#submitNewEncounterButton:hover {
+    background-color: $lighterBlue;
+    border-radius: 50px;
+}
+
+#cancelNewEncounterButton {
+    color: $lightRed
+}
+
+#cancelNewEncounterButton:hover {
+    background-color: $lighterRed;
+    border-radius: 50px;
+}
+
+.encounterTextEntryQuestion {
+    padding: 1em; 
+    width: 30vw;
+    font-size: 40px;
+}
+
+.newEncounterTextEntryCompWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
