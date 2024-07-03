@@ -7,6 +7,8 @@ $lighterRed: #b68d8d98;
 $lightBlue: #5984b0;
 $lighterBlue: #adc0d4c0;
 $lightGreen: rgb(92, 136, 117);
+$lighterGreen: rgba(113, 139, 128, 0.477);
+
 
 $iconMinWidth: 4.25em;
 
@@ -26,6 +28,12 @@ $iconMinWidth: 4.25em;
     padding-left:0.5em
 }
 
+.centerStackedElementsWithin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 
 // $blueBlaze: 1px 3px 1px rgb(97, 97, 97), 
