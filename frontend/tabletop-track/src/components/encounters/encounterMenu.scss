@@ -85,6 +85,10 @@
     color: black;
 }
 
+.deleteEncounterWrapper:hover {
+    color: $lightRed;
+}
+
 .encounterTextEntryWrapper {
     display: flex;
     align-items: center;

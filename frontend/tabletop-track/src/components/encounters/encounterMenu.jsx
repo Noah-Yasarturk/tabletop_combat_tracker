@@ -12,7 +12,8 @@ const restHeaders = {
     'Content-Type': 'application/json',
 }
 const createEncounterUrl = 'http://localhost:8080/encounter';
-const readEncountersUrl = 'http://localhost:8080/encounters'
+const readEncountersUrl = 'http://localhost:8080/encounters';
+const deleteEncounterBaseUrl = 'http://localhost:8080/encounter/'; // plus id
 
 function NewEncounterButton() {
     return  (
@@ -24,13 +25,21 @@ function NewEncounterButton() {
     )
 }
 
-function OldEncounterButton({encounterName}) {
+async function deleteEncounter(encounterId) {
+    console.log("Deleting encounter by id ", encounterId)
+    const response = await fetch(`${deleteEncounterBaseUrl}${encounterId}`, { method: "DELETE" })
+    if (!response.ok) {
+        throw new Error(`Delete Encounter response status: ${response.status}`)
+    } 
+}
+
+function OldEncounterButton({encounterName, encounterId}) {
     return (
         <div className="oldEncounterButton">
             <IoMdTrash style={{display:"none"}}/> {/* Invisible for alignment */}
             <span>{encounterName}</span>
             <div className="deleteEncounterWrapper">
-                <IoMdTrash id={encounterName + "-DeleteButton"}/>
+                <IoMdTrash id={encounterName + "-DeleteButton"} onClick={() => deleteEncounter(encounterId)}/>
             </div>
         </div>
     )
@@ -52,7 +61,8 @@ async function readEncounters() {
         console.log("Got Encounters, ", encounterData);
         encounterData.map(encounter => {
             encounterComps.push(
-                <OldEncounterButton encounterName={encounter.name} key={encounterData.indexOf(encounter)}/>
+                <OldEncounterButton encounterName={encounter.name} 
+                    encounterId={encounter.id} key={encounterData.indexOf(encounter)}/>
             )
         })
     })

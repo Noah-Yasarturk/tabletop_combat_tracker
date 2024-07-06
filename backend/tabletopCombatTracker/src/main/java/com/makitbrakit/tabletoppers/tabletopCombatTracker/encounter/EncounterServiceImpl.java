@@ -30,8 +30,7 @@ public class EncounterServiceImpl implements EncounterService{
 
     @Override
     public void deleteEncounter(Encounter encounter) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteEncounter'");
+        this.encounterRepository.delete(encounter);
     }
 
     @Override
