@@ -8,6 +8,7 @@
 
 .newEncounterButtonWrapper {
     @extend .menuButtonsWrapper;
+
 }
 
 .backToMainMenuSection {
@@ -26,13 +27,24 @@
 .newEncounterButton {
     @extend .menuLink;
     background-color: white;
-    border: $lightBlue;
+    border: $lightGreen;
     border-style: solid;
     border-width: 2px;
     display: flex;
     align-items: center;
     flex-direction: row;
 }
+
+#swordBoardLeft {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+#swordBoardRight {
+    margin-left: auto;
+    margin-right: 0;
+}
+
 
 .newEncounterTextBox {
     border: white!important;
@@ -44,11 +56,42 @@
 }
 
 .newEncounterButton:hover {
-   background-color: $lighterBlue;
+   background-color: $lighterGreen;
+}
+
+.oldEncounterButton {
+    @extend .menuLink;
+    background-color: white;
+    border: $lightBlue;
+    border-style: solid;
+    border-width: 2px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.oldEncounterButton:hover {
+    background-color: $lighterBlue;
+}
+
+.oldEncounterButton span {
+    width: 100%;
+}
+
+
+.deleteEncounterWrapper {
+    margin-right: 0;
+    margin-left: auto;
+    color: black;
+}
+
+.deleteEncounterWrapper:hover {
+    color: $lightRed;
 }
 
 .encounterTextEntryWrapper {
     display: flex;
+    align-items: center;
 }
 
 .encounterTextEntryWrapper svg {
@@ -61,18 +104,19 @@
     border-right: none;
     width: 25vw;
     font-family: Papyrus;
+    font-size: 48px;
 }
 
 .encounterTextEntryWrapper input:hover {
-    background-color: $lighterBlue;
+    background-color: $lighterGreen;
 }
 
 #submitNewEncounterButton {
-    color: $lightBlue;
+    color: $lightGreen;
 }
 
 #submitNewEncounterButton:hover {
-    background-color: $lighterBlue;
+    background-color: $lighterGreen;
     border-radius: 50px;
 }
 
@@ -96,4 +140,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.oldEncountersWrapper {
+    @extend .centerStackedElementsWithin;   
 }

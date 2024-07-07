@@ -1,12 +1,12 @@
 package com.makitbrakit.tabletoppers.tabletopCombatTracker.encounter;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,7 +48,7 @@ public class EncounterController {
     }
 
 
-    @GetMapping("/encounters/{id}")
+    @GetMapping("/encounter/{id}")
     EntityModel<Encounter> one(@PathVariable Long id) {
         Encounter encounter = this.encounterService.getEncounterById(id);
 
@@ -61,9 +61,15 @@ public class EncounterController {
     @PostMapping("/encounter")
     ResponseEntity<?> newEncounter(@RequestBody Encounter newEncounter) {
         EntityModel<Encounter> entityModel = encounterModelAssembler.toModel(encounterService.saveEncounter(newEncounter));
-        // return encounterService.saveEncounter(newEncounter);
         return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
             .body(entityModel);
+    }
+
+    @DeleteMapping("/encounter/{id}")
+    ResponseEntity<?> deleteEncounter(@PathVariable("id") String id) {
+        Encounter encounterToDelete = encounterService.getEncounterById(Long.valueOf(id));
+        encounterService.deleteEncounter(encounterToDelete);
+        return ResponseEntity.noContent().build();
     }
     
 }
