@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { GiSwordsEmblem } from "react-icons/gi";
 import './encounterMenu.scss';
 import { useState, useEffect } from 'react';
+import { BackButton } from '../backButton';
 
 const restHeaders = {
     'Accept': 'application/json',
@@ -40,14 +41,18 @@ export function EncounterMenu() {
             }
             return response.json()
         }).then((data) => {
-            let encounterData = data._embedded.encounterList;
-            encounterData.forEach(encounter => {
-                encounterComps.push(
-                    <OldEncounterButton encounterName={encounter.name}
-                        encounterId={encounter.id} key={encounterData.indexOf(encounter)} />
-                )
-            })
-            setOldEncounters(encounterComps)
+            if (Object.hasOwn(data, '_embedded')) {
+                let encounterData = data._embedded.encounterList;
+                encounterData.forEach(encounter => {
+                    encounterComps.push(
+                        <OldEncounterButton encounterName={encounter.name}
+                            encounterId={encounter.id} key={encounterData.indexOf(encounter)} />
+                    )
+                })
+            } else {
+                console.log("No Encounters currently");
+            }
+            setOldEncounters(encounterComps)            
         })
             .catch((error) => {
                 console.error("Failed to get Encounters: ", error);
@@ -127,11 +132,7 @@ export function EncounterMenu() {
         return (
             <div className="encounterMenuWrapper">
                 <div className="staticHeader">
-                    <span className="backToMainMenuSection">
-                        <Link to={`/`}>
-                            <MdArrowBack></MdArrowBack>
-                        </Link>
-                    </span>
+                    <BackButton/>
                     <span className="headerText">Encounters</span>
                 </div>
 
