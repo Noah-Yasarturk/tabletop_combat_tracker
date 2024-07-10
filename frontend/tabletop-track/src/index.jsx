@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { EncounterMenu } from './components/encounters/encounterMenu';
+import { EncounterBody } from './components/encounters/encounterBody';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     path: "/encounters",
     element: <EncounterMenu/>
   },
+  {
+    path: "/encounter/dummy",
+    element: <EncounterBody/>
+  }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

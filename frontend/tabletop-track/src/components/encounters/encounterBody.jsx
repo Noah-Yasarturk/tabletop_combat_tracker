@@ -1,5 +1,6 @@
-import { CharacterRow } from "./characterRow"
-import dummyData from "./dummyStats1.json"
+import { CharacterRow } from "../characters/characterRow"
+import { EncounterHeader } from "./encounterHeader";
+import dummyData from "../../dummyStats1.json"
 
 
 export function EncounterBody(){
@@ -19,8 +20,11 @@ export function EncounterBody(){
     )
 
     return (
-        <div className='encounterBody'>
-            {characterRows}
-        </div>
+        <>
+            <EncounterHeader encounterName={"Dummy Encounter"}/>
+            <div className='encounterBody'>
+                {characterRows}
+            </div>
+        </>
     )
 }

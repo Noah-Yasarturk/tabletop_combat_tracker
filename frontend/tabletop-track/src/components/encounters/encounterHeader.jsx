@@ -1,9 +1,11 @@
 import './encounterHeader.scss'
+import { BackButton } from '../backButton'
 
-export function EncounterHeader() {
+export function EncounterHeader({encounterName}) {
     return (
         <div className="staticHeader">
-            <span className="headerText">Encounter Name</span>
+            <BackButton/>
+            <span className="headerText">{encounterName}</span>
         </div>
     )
 }

@@ -18,10 +18,10 @@
 .backToMainMenuSection svg {
     // The back icon
     font-size: 3em;
-    color: $lightBlue;
+    color: black;
 }
 .backToMainMenuSection svg:hover {
-    color: $lighterBlue;
+    color: rgba(132, 131, 131, 0.442);
 }
 
 .newEncounterButton {
