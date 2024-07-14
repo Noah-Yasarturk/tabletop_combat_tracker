@@ -17,7 +17,7 @@ public class Encounter {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    Long encounterId;
+    private Long encounterId;
     private String encounterName; 
 
     @CreationTimestamp

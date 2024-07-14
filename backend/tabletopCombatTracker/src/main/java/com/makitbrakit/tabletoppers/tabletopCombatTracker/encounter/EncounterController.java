@@ -4,7 +4,6 @@ package com.makitbrakit.tabletoppers.tabletopCombatTracker.encounter;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,11 +28,6 @@ public class EncounterController {
         this.encounterModelAssembler = encounterModelAssembler;
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello World";
-    }
-
     @GetMapping("/encounters")
     CollectionModel<EntityModel<Encounter>> all() {
 
@@ -50,6 +44,8 @@ public class EncounterController {
 
     @GetMapping("/encounter/{id}")
     EntityModel<Encounter> one(@PathVariable Long id) {
+        // TODO: add 404 logic
+
         Encounter encounter = this.encounterService.getEncounterById(id);
 
         return EntityModel.of(encounter,

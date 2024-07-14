@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { EncounterMenu } from './components/encounters/encounterMenu';
 import { EncounterBody } from './components/encounters/encounterBody';
+import { CharTemplateForm } from './components/template/templateForm';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/encounter/dummy",
     element: <EncounterBody/>
+  },
+  {
+    path: "/templates/create",
+    element: <CharTemplateForm/>
   }
 ])
 

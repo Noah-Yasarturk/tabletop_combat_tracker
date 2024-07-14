@@ -17,6 +17,7 @@ public class TabletopCombatTrackerApplication {
 	public static void main(String[] args) {
 		applicationContext = SpringApplication.run(TabletopCombatTrackerApplication.class, args);
 		checkBeansPresence("encounter");
+		checkBeansPresence("characterTemplate");
 	}
 
 	private static void checkBeansPresence(String... beans) {
