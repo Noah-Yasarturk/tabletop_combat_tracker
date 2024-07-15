@@ -2,13 +2,12 @@ package com.makitbrakit.tabletoppers.tabletopCombatTracker;
 
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class GameUtils {
 
-    public static Set<String> creatureTypes = new HashSet<String>(){{
+    public static HashSet<String> creatureTypes = new HashSet<String>(){{
         add("Aberration");
         add("Beast");
         add("Celestial");

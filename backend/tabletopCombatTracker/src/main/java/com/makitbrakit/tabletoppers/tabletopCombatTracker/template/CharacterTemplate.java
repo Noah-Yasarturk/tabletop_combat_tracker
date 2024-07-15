@@ -14,10 +14,12 @@ import jakarta.persistence.Id;
 public class CharacterTemplate {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long charTemplateId;
 
     private String charTemplateName;
+
+    private String creatureType;
 
     private int armorClass;
 
@@ -34,14 +36,16 @@ public class CharacterTemplate {
     private int charisma;
 
     @CreationTimestamp
-    private Date createdAt; 
+    private Date createdAt;
 
     @UpdateTimestamp
     private Date updatedAt;
 
-    CharacterTemplate() {}
+    CharacterTemplate() {
+    }
 
-    CharacterTemplate(String characterTemplateName, int armor, int str, int dex, int cnst, int intell, int wis, int chr) {
+    CharacterTemplate(String characterTemplateName, String creatureType, int armor, int str, int dex, int cnst,
+            int intell, int wis, int chr) {
         this.charTemplateName = characterTemplateName;
         this.armorClass = armor;
         this.strength = str;
@@ -49,13 +53,21 @@ public class CharacterTemplate {
         this.constitution = cnst;
         this.intelligence = intell;
         this.wisdom = wis;
-        this.charisma = chr; 
+        this.charisma = chr;
         this.createdAt = new Date();
         this.updatedAt = this.createdAt;
     }
 
     public Long getId() {
         return this.charTemplateId;
+    }
+
+    public String getCreatureType() {
+        return creatureType;
+    }
+
+    public void setCreatureType(String creatureType) {
+        this.creatureType = creatureType;
     }
 
     public String getCharTemplateName() {
@@ -81,7 +93,7 @@ public class CharacterTemplate {
     public void setDexterity(int dexterity) {
         this.dexterity = dexterity;
     }
-    
+
     public int getConstitution() {
         return constitution;
     }
@@ -97,7 +109,7 @@ public class CharacterTemplate {
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
-    
+
     public int getWisdom() {
         return wisdom;
     }
@@ -121,5 +133,5 @@ public class CharacterTemplate {
     public void setArmorClass(int armorClass) {
         this.armorClass = armorClass;
     }
-    
+
 }
