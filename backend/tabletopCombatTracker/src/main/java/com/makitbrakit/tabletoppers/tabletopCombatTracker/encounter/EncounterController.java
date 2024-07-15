@@ -4,6 +4,7 @@ package com.makitbrakit.tabletoppers.tabletopCombatTracker.encounter;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
@@ -44,14 +46,17 @@ public class EncounterController {
 
     @GetMapping("/encounter/{id}")
     EntityModel<Encounter> one(@PathVariable Long id) {
-        // TODO: add 404 logic
-
-        Encounter encounter = this.encounterService.getEncounterById(id);
-
-        return EntityModel.of(encounter,
-            linkTo(methodOn(EncounterController.class).one(id)).withSelfRel(),
-            linkTo(methodOn(EncounterController.class).all()).withRel("encounters")
-        );
+        try {
+            Encounter encounter = this.encounterService.getEncounterById(id);
+            return EntityModel.of(encounter,
+                linkTo(methodOn(EncounterController.class).one(id)).withSelfRel(),
+                linkTo(methodOn(EncounterController.class).all()).withRel("encounters")
+            );
+        } catch (EncounterNotFoundException e) {
+            throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Encounter with id " + id + " not found"
+            );
+        }
     }
 
     @PostMapping("/encounter")
