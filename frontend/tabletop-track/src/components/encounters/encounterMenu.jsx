@@ -135,13 +135,15 @@ export function EncounterMenu() {
                     <BackButton/>
                     <span className="headerText">Encounters</span>
                 </div>
-
-                <div className="newEncounterButtonWrapper" onClick={(event) => handleNewEncounterClicked(event)} >
-                    <NewEncounterButton />
-                </div>
+                 {/* Saved Encounters */}
 
                 <div className="oldEncountersWrapper">
                     {oldEncounters}
+                </div>
+
+                 {/* Create new Encounter */}
+                <div className="newEncounterButtonWrapper" onClick={(event) => handleNewEncounterClicked(event)} >
+                    <NewEncounterButton />
                 </div>
             </div>
         )

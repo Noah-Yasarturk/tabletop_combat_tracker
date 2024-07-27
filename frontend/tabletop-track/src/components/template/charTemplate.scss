@@ -1,4 +1,5 @@
 @import '../globalStyles.scss';
+@import '../mainMenu.scss';
 
 .charTemplateMenuWrapper {
    
@@ -24,4 +25,31 @@
     border-top: none;
     border-left: none;
     border-right: none;
+}
+
+.newTemplateButton {
+    @extend .menuLink;
+    background-color: white;
+    border: $lightGreen;
+    border-style: solid;
+    border-width: 2px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+#charOutlineLeft {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+#charOutlineRight {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+
+.newTemplateButtonWrapper {
+    @extend .menuButtonsWrapper;
+
 }
