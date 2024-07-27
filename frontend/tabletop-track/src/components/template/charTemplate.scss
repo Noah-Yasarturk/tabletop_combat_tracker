@@ -1,5 +1,16 @@
 @import '../globalStyles.scss';
 
+.charTemplateMenuWrapper {
+   
+
+}
+
+.charTemplateMenuHeader {
+    @extend .staticHeader;
+    @extend .headerText;
+}
+
+
 .charTemplateFormWrapper {
     @extend .centerStackedElementsWithin;
     height: 100vh;

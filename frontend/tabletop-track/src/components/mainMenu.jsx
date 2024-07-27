@@ -21,7 +21,7 @@ export function MainMenu() {
                 Characters
             </Link> 
 
-            <Link className="menuLink">
+            <Link className="menuLink" to={`templates`}>
                 <GiCharacter className="characterTemplateIcon"></GiCharacter>
                 Character Templates
             </Link>

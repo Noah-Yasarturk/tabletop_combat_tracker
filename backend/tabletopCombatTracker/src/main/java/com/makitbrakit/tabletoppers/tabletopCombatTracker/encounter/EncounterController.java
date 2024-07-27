@@ -1,6 +1,5 @@
 package com.makitbrakit.tabletoppers.tabletopCombatTracker.encounter;
 
-
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -34,36 +33,34 @@ public class EncounterController {
     CollectionModel<EntityModel<Encounter>> all() {
 
         List<EntityModel<Encounter>> encounters = encounterService.fetchEncounterList().stream()
-            .map(encounter -> EntityModel.of(encounter,
-                linkTo(methodOn(EncounterController.class).one(encounter.getId())).withSelfRel(),
-                linkTo(methodOn(EncounterController.class).all()).withRel("encounters")))
-            .collect(Collectors.toList());
+                .map(encounter -> EntityModel.of(encounter,
+                        linkTo(methodOn(EncounterController.class).one(encounter.getId())).withSelfRel(),
+                        linkTo(methodOn(EncounterController.class).all()).withRel("encounters")))
+                .collect(Collectors.toList());
 
-        return CollectionModel.of(encounters, 
-            linkTo(methodOn(EncounterController.class).all()).withSelfRel());
+        return CollectionModel.of(encounters,
+                linkTo(methodOn(EncounterController.class).all()).withSelfRel());
     }
-
 
     @GetMapping("/encounter/{id}")
     EntityModel<Encounter> one(@PathVariable Long id) {
         try {
             Encounter encounter = this.encounterService.getEncounterById(id);
             return EntityModel.of(encounter,
-                linkTo(methodOn(EncounterController.class).one(id)).withSelfRel(),
-                linkTo(methodOn(EncounterController.class).all()).withRel("encounters")
-            );
+                    linkTo(methodOn(EncounterController.class).one(id)).withSelfRel(),
+                    linkTo(methodOn(EncounterController.class).all()).withRel("encounters"));
         } catch (EncounterNotFoundException e) {
             throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "Encounter with id " + id + " not found"
-            );
+                    HttpStatus.NOT_FOUND, e.getLocalizedMessage());
         }
     }
 
     @PostMapping("/encounter")
     ResponseEntity<?> newEncounter(@RequestBody Encounter newEncounter) {
-        EntityModel<Encounter> entityModel = encounterModelAssembler.toModel(encounterService.saveEncounter(newEncounter));
+        EntityModel<Encounter> entityModel = encounterModelAssembler
+                .toModel(encounterService.saveEncounter(newEncounter));
         return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
-            .body(entityModel);
+                .body(entityModel);
     }
 
     @DeleteMapping("/encounter/{id}")
@@ -72,5 +69,5 @@ public class EncounterController {
         encounterService.deleteEncounter(encounterToDelete);
         return ResponseEntity.noContent().build();
     }
-    
+
 }

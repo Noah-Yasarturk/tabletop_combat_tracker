@@ -20,12 +20,13 @@ $iconMinWidth: 4.25em;
     position: sticky; 
     z-index: 3;
     height: 10vh;
+    justify-content: center;
 }
 
 .headerText {
     font-family: Papyrus;
     font-size: 400%;
-    padding-left:0.5em
+    padding-left:0.5em;
 }
 
 .centerStackedElementsWithin {
