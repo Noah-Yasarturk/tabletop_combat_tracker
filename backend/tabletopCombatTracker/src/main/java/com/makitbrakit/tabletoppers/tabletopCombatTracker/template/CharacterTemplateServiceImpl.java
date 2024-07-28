@@ -31,26 +31,6 @@ public class CharacterTemplateServiceImpl implements CharacterTemplateService {
 
 
     /**
-     * All stats should be between 0 and 30
-     * @param characterTemplate
-     */
-    private void validateStats(CharacterTemplate characterTemplate) {
-        List<Integer> statsToCheck = new ArrayList<Integer>(){{
-            add(characterTemplate.getCharisma());
-            add(characterTemplate.getConstitution());
-            add(characterTemplate.getDexterity());
-            add(characterTemplate.getIntelligence());
-            add(characterTemplate.getStrength());
-            add(characterTemplate.getWisdom());
-        }};
-        statsToCheck.forEach(stat -> {
-            if (stat > 30 || stat < 0) {
-                throw new InvalidCharacterTemplateException(stat);
-            }
-        });
-    }
-
-    /**
      * Ensure the passed creature type is amonst the defined creature types
      * @param characterTemplate
      */
@@ -75,7 +55,6 @@ public class CharacterTemplateServiceImpl implements CharacterTemplateService {
 
     @Override
     public CharacterTemplate saveCharacterTemplate(CharacterTemplate characterTemplate) {
-        validateStats(characterTemplate);
         validateCreatureType(characterTemplate);
         validateCharacterName(characterTemplate);
         characterTemplateRepository.save(characterTemplate);

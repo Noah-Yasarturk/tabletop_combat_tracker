@@ -9,8 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 
@@ -21,6 +22,7 @@ public class CharacterTemplate {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long charTemplateId;
 
+
     @NotBlank(message="charTemplateName may not be null")
     private String charTemplateName;
 
@@ -28,18 +30,40 @@ public class CharacterTemplate {
 
     private int armorClass;
 
+    @NotNull(message="strength required for CharacterTemplate")
+    @Min(0)
+    @Max(30)
     private int strength;
 
+    @NotNull(message="dexterity required for CharacterTemplate")
+    @Min(0)
+    @Max(30)
     private int dexterity;
 
+
+    @NotNull(message="constitution required for CharacterTemplate")
+    @Min(0)
+    @Max(30)
     private int constitution;
 
+
+    @NotNull(message="intelligence required for CharacterTemplate")
+    @Min(0)
+    @Max(30)
     private int intelligence;
 
+
+    @NotNull(message="wisdom required for CharacterTemplate")
+    @Min(0)
+    @Max(30)
     private int wisdom;
 
-    private int charisma;
 
+    @NotNull(message="charisma required for CharacterTemplate")
+    @Min(0)
+    @Max(30)
+    private int charisma;
+  
     @CreationTimestamp
     private Date createdAt;
 
@@ -63,9 +87,6 @@ public class CharacterTemplate {
         this.updatedAt = this.createdAt;
     }
 
-    public Long getId() {
-        return this.charTemplateId;
-    }
 
     public String getCreatureType() {
         return creatureType;
@@ -83,44 +104,20 @@ public class CharacterTemplate {
         this.charTemplateName = charTemplateName;
     }
 
+    public int getArmorClass() {
+        return armorClass;
+    }
+
+    public void setArmorClass(int armorClass) {
+        this.armorClass = armorClass;
+    }
+
     public int getStrength() {
         return strength;
     }
 
     public void setStrength(int strength) {
         this.strength = strength;
-    }
-
-    public int getDexterity() {
-        return dexterity;
-    }
-
-    public void setDexterity(int dexterity) {
-        this.dexterity = dexterity;
-    }
-
-    public int getConstitution() {
-        return constitution;
-    }
-
-    public void setConstitution(int constitution) {
-        this.constitution = constitution;
-    }
-
-    public int getIntelligence() {
-        return intelligence;
-    }
-
-    public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
-    }
-
-    public int getWisdom() {
-        return wisdom;
-    }
-
-    public void setWisdom(int wisdom) {
-        this.wisdom = wisdom;
     }
 
     public int getCharisma() {
@@ -131,12 +128,40 @@ public class CharacterTemplate {
         this.charisma = charisma;
     }
 
-    public int getArmorClass() {
-        return armorClass;
+    public int getWisdom() {
+        return wisdom;
     }
 
-    public void setArmorClass(int armorClass) {
-        this.armorClass = armorClass;
+    public void setWisdom(int wisdom) {
+        this.wisdom = wisdom;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
+    }
+
+    public int getConstitution() {
+        return constitution;
+    }
+
+    public void setConstitution(int constitution) {
+        this.constitution = constitution;
+    }
+
+    public int getDexterity() {
+        return dexterity;
+    }
+
+    public void setDexterity(int dexterity) {
+        this.dexterity = dexterity;
+    }
+
+    public Long getId() {
+        return this.charTemplateId;
     }
 
 }
