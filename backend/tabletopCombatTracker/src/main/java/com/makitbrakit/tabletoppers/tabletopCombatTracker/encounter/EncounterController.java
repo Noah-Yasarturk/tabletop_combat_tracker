@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import jakarta.validation.Valid;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 import java.util.List;
@@ -56,7 +58,7 @@ public class EncounterController {
     }
 
     @PostMapping("/encounter")
-    ResponseEntity<?> newEncounter(@RequestBody Encounter newEncounter) {
+    ResponseEntity<?> newEncounter(@Valid @RequestBody Encounter newEncounter) {
         EntityModel<Encounter> entityModel = encounterModelAssembler
                 .toModel(encounterService.saveEncounter(newEncounter));
         return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
