@@ -1,6 +1,8 @@
 package com.makitbrakit.tabletoppers.tabletopCombatTracker.template;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.hateoas.CollectionModel;
@@ -8,13 +10,20 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+
+import jakarta.validation.Valid;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
@@ -57,8 +66,21 @@ public class CharacterTemplateController {
         }
     }
 
+    @GetMapping("/characterTemplate/{name}")
+    EntityModel<CharacterTemplate> getByName(@RequestParam String name) {
+        try {
+            CharacterTemplate characterTemplate = this.characterTemplateService.findCharacterTemplateByName(name);
+
+            return EntityModel.of(characterTemplate,
+                    linkTo(methodOn(CharacterTemplateController.class).getByName(name)).withSelfRel(),
+                    linkTo(methodOn(CharacterTemplateController.class).all()).withRel("characterTemplates"));
+        } catch (CharacterTemplateNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getLocalizedMessage());
+        }
+    }
+
     @PostMapping("/characterTemplate")
-    ResponseEntity<?> newCharacterTemplate(@RequestBody CharacterTemplate chrTemplate) {
+    ResponseEntity<?> newCharacterTemplate(@Valid @RequestBody CharacterTemplate chrTemplate) {
         try {
             EntityModel<CharacterTemplate> chrEntityModel = characterTemplateModelAssembler
                     .toModel(characterTemplateService.saveCharacterTemplate(chrTemplate));
@@ -75,5 +97,6 @@ public class CharacterTemplateController {
         characterTemplateService.deleteCharacterTemplate(characterTemplate);
         return ResponseEntity.noContent().build();
     }
+
 
 }

@@ -11,7 +11,7 @@ public class InvalidCharacterTemplateException extends RuntimeException {
     }
 
     public InvalidCharacterTemplateException(CharacterTemplate charTemplate ) {
-        super(String.format("Invalid character template provided with name %s", charTemplate.getCharTemplateName()));
+        super(String.format("Character template already exists with name %s", charTemplate.getCharTemplateName()));
     }
     
 }

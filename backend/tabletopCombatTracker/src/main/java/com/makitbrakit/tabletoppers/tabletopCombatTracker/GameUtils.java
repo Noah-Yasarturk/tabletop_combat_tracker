@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Contains logic for game rules 
+ */
 public class GameUtils {
 
     public static HashSet<String> creatureTypes = new HashSet<String>(){{
