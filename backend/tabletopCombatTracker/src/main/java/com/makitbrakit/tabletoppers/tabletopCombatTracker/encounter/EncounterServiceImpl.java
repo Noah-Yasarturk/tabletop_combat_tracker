@@ -13,8 +13,13 @@ public class EncounterServiceImpl implements EncounterService{
 
     @Override
     public Encounter saveEncounter(Encounter encounter) {
-        encounterRepository.save(encounter);
-        return encounter;
+        try {
+            getEncounterByName(encounter.getName());
+            throw new InvalidEncounterException(encounter.getName());
+        } catch (EncounterNotFoundException e) {
+            encounterRepository.save(encounter);
+            return encounter;
+        }
     }
 
     @Override
@@ -37,6 +42,12 @@ public class EncounterServiceImpl implements EncounterService{
     public Encounter getEncounterById(Long encounterId) {
         return this.encounterRepository.findById(encounterId)
         .orElseThrow(() -> new EncounterNotFoundException(encounterId));
+    }
+
+    @Override
+    public Encounter getEncounterByName(String encounterName) {
+        return this.encounterRepository.getEncounterByName(encounterName)
+        .orElseThrow(() -> new EncounterNotFoundException(encounterName));
     }
     
 }

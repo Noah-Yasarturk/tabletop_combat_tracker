@@ -59,10 +59,15 @@ public class EncounterController {
 
     @PostMapping("/encounter")
     ResponseEntity<?> newEncounter(@Valid @RequestBody Encounter newEncounter) {
-        EntityModel<Encounter> entityModel = encounterModelAssembler
-                .toModel(encounterService.saveEncounter(newEncounter));
-        return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
-                .body(entityModel);
+        try {
+            EntityModel<Encounter> entityModel = encounterModelAssembler
+            .toModel(encounterService.saveEncounter(newEncounter));
+            return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+                    .body(entityModel);
+        } catch (InvalidEncounterException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getLocalizedMessage());
+        }
+        
     }
 
     @DeleteMapping("/encounter/{id}")

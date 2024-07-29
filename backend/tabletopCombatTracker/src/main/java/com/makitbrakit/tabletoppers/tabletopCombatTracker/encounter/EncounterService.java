@@ -6,6 +6,8 @@ public interface EncounterService {
 
     Encounter getEncounterById(Long encounterId);
 
+    Encounter getEncounterByName(String encounterName);
+
     Encounter saveEncounter(Encounter encounter);
 
     List<Encounter> fetchEncounterList();
